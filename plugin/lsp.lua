@@ -13,3 +13,4 @@ map('n', '<leader>gsd', ':lua vim.lsp.diagnostic.show_line_diagnostics(); vim.ls
 map('n', '<leader>gn', ':lua vim.lsp.diagnostic.goto_next()<CR>')
 map('n', '<leader>gll', ':call LspLocationList()<CR>')
 map('n', '<leader>bf', ':lua vim.lsp.buf.formatting()<CR>')
+map('n', '<leader>fm', ':lua vim.lsp.buf.formatting()<CR>', { noremap = true, silent = true})
