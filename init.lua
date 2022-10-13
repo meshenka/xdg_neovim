@@ -1,12 +1,5 @@
 vim.g.mapleader = " "
 
--- Neovim builtin LSP configuration
--- require "syg.lsp"
-
--- Telescope BTW
--- require "syg.telescope.setup"
--- require "syg.telescope.mappings"
-
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin', '~/.config/nvim/plugged')
@@ -53,8 +46,8 @@ Plug('L3MON4D3/LuaSnip')
 Plug('gruvbox-community/gruvbox')
 
 -- airline
-Plug('vim-airline/vim-airline')
-Plug('vim-airline/vim-airline-themes')
+Plug'nvim-lualine/lualine.nvim'
+Plug'kyazdani42/nvim-web-devicons'
 
 -- session
 Plug('xolox/vim-misc')
