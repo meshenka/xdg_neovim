@@ -1,11 +1,11 @@
 local opt = vim.opt
 -- Encoding
-opt.encoding = 'UTF-8'
-opt.fileencoding = 'utf-8'
-opt.fileencodings = 'utf-8'
+opt.encoding = "UTF-8"
+opt.fileencoding = "utf-8"
+opt.fileencodings = "utf-8"
 
 -- Fix backspace indent
-opt.backspace = {'indent','eol','start'}
+opt.backspace = {"indent", "eol", "start"}
 
 -- Tabs. May be overridden by autocmd rules
 opt.tabstop = 4
@@ -22,7 +22,8 @@ opt.incsearch = true
 opt.ignorecase = true
 opt.smartcase = true
 
-opt.fileformats = {'unix','dos','mac'}
+opt.fileformats = {"unix", "dos", "mac"}
+ --
 
 --[[
 if exists('$SHELL')
@@ -30,9 +31,7 @@ if exists('$SHELL')
 else
     opt.shell=/bin/sh
 endif
-]]--
-
-opt.shell = "/usr/bin/zsh"
+]] opt.shell = "/usr/bin/zsh"
 vim.cmd([[syntax on]])
 opt.ruler = true
 opt.number = true
@@ -40,12 +39,13 @@ opt.relativenumber = true
 
 -- opt.no_buffers_menu = 1
 vim.cmd([[colorscheme gruvbox]])
-opt.background = 'dark'
+opt.background = "dark"
 
-opt.mousemodel = 'popup'
+opt.mousemodel = "popup"
 -- opt.t_Co = 256
 opt.guioptions = "egmrti"
 opt.gfn = "Monospace 10"
+ --
 
 --[[
 if has("gui_running")
@@ -62,37 +62,35 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 endif
-]]--
-
---  Disable visualbell
+]] --  Disable visualbell
 -- opt.noerrorbells = {'visualbell', 't_vb='}
 opt.errorbells = false
+ --
 
 --[[
 if has('autocmd') then
   autocmd GUIEnter * opt.visualbell t_vb=
 end
-]]--
--- " Disable the blinking cursor.
-opt.gcr = 'a:blinkon0'
+]] -- " Disable the blinking cursor.
+opt.gcr = "a:blinkon0"
 opt.scrolloff = 3
 
 -- " Status bar: global statusline at the bottom
 opt.laststatus = 3
-opt.colorcolumn = '80'
+opt.colorcolumn = "80"
 
 -- " Use modeline overrides
 opt.modeline = true
 opt.modelines = 10
 
 opt.title = true
-opt.titleold = 'Terminal'
-opt.titlestring = '%F'
+opt.titleold = "Terminal"
+opt.titlestring = "%F"
 
-opt.statusline = '%F%m%r%h%w%=(%{&ff}/%Y) (line %l/%L, col %c)'
-opt.omnifunc = 'syntaxcomplete#Complete'
+opt.statusline = "%F%m%r%h%w%=(%{&ff}/%Y) (line %l/%L, col %c)"
+opt.omnifunc = "syntaxcomplete#Complete"
 opt.wildignore = {"__pycache__"}
-opt.wildignore:append({ "*.o", "*~", "*.pyc", "*pycache*" })
+opt.wildignore:append({"*.o", "*~", "*.pyc", "*pycache*"})
 opt.showmode = false
 opt.showcmd = true
 opt.cmdheight = 1 -- Height of the command bar
