@@ -2,7 +2,7 @@ local map = require("keymap").map
 local nvomap = require("keymap").nvomap
 
 --  terminal emulation
-map("n", "<leader>sh", ":terminal<CR>", {noremap = true, silent = true})
+map("n", "<leader>sh", ":terminal<CR>", { noremap = true, silent = true })
 
 -- Split
 nvomap("<leader>h", ":split<CR>")

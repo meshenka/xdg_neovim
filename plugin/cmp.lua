@@ -26,7 +26,7 @@ cmp.setup {
                     fallback()
                 end
             end,
-            {"i", "s"}
+            { "i", "s" }
         ),
         ["<S-Tab>"] = cmp.mapping(
             function(fallback)
@@ -38,11 +38,11 @@ cmp.setup {
                     fallback()
                 end
             end,
-            {"i", "s"}
+            { "i", "s" }
         )
     },
     sources = {
-        {name = "nvim_lsp"},
-        {name = "luasnip"}
+        { name = "nvim_lsp" },
+        { name = "luasnip" }
     }
 }

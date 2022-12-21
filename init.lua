@@ -3,7 +3,7 @@ local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nv
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     is_bootstrap = true
-    vim.fn.system {"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path}
+    vim.fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
     vim.cmd [[packadd packer.nvim]]
 end
 
@@ -43,7 +43,7 @@ require("packer").startup(
             -- Highlight, edit, and navigate code
             "nvim-treesitter/nvim-treesitter",
             run = function()
-                pcall(require("nvim-treesitter.install").update {with_sync = true})
+                pcall(require("nvim-treesitter.install").update { with_sync = true })
             end
         }
 
@@ -58,7 +58,7 @@ require("packer").startup(
         use "tpope/vim-rhubarb"
         use "lewis6991/gitsigns.nvim"
 
-        use {"catppuccin/nvim", as = "catppuccin"} -- theme
+        use { "catppuccin/nvim", as = "catppuccin" } -- theme
 
         use "nvim-lualine/lualine.nvim" -- Fancier statusline
         use "lukas-reineke/indent-blankline.nvim" -- Add indentation guides even on blank lines
@@ -76,14 +76,14 @@ require("packer").startup(
         }
 
         -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-        use {"nvim-telescope/telescope-fzf-native.nvim", run = "make", cond = vim.fn.executable "make" == 1}
+        use { "nvim-telescope/telescope-fzf-native.nvim", run = "make", cond = vim.fn.executable "make" == 1 }
 
-        use {"ryanoasis/vim-devicons"} -- fancy icons
-        use {"editorconfig/editorconfig-vim"} -- read projetcs editorconfig
+        use { "ryanoasis/vim-devicons" } -- fancy icons
+        use { "editorconfig/editorconfig-vim" } -- read projetcs editorconfig
 
         -- session managment
-        use {"xolox/vim-misc"}
-        use {"xolox/vim-session"}
+        use { "xolox/vim-misc" }
+        use { "xolox/vim-session" }
 
         -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
         local has_plugins, plugins = pcall(require, "custom.plugins")
@@ -111,7 +111,7 @@ if is_bootstrap then
 end
 
 -- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup("Packer", {clear = true})
+local packer_group = vim.api.nvim_create_augroup("Packer", { clear = true })
 vim.api.nvim_create_autocmd(
     "BufWritePost",
     {
@@ -125,3 +125,14 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.cmd.colorscheme "catppuccin"
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+})

@@ -12,7 +12,7 @@ local on_attach = function(_, bufnr)
             desc = "LSP: " .. desc
         end
 
-        vim.keymap.set("n", keys, func, {buffer = bufnr, desc = desc})
+        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
     end
 
     nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -48,7 +48,7 @@ local on_attach = function(_, bufnr)
         function(_)
             vim.lsp.buf.format()
         end,
-        {desc = "Format current buffer with LSP"}
+        { desc = "Format current buffer with LSP" }
     )
 end
 
@@ -66,8 +66,8 @@ local servers = {
 
     sumneko_lua = {
         Lua = {
-            workspace = {checkThirdParty = false},
-            telemetry = {enable = false}
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false }
         }
     }
 }
