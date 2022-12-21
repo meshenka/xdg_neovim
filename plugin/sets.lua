@@ -1,104 +1,58 @@
-local opt = vim.opt
--- Encoding
-opt.encoding = "UTF-8"
-opt.fileencoding = "utf-8"
-opt.fileencodings = "utf-8"
-
 -- Fix backspace indent
-opt.backspace = {"indent", "eol", "start"}
+-- vim.o.backspace = {"indent", "eol", "start"}
 
 -- Tabs. May be overridden by autocmd rules
-opt.tabstop = 4
-opt.softtabstop = 0
-opt.shiftwidth = 4
-opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 0
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
--- Enable hidden buffers:
-opt.hidden = true
+-- Enable hidden buffers
+vim.o.hidden = true
 
--- " Searching
-opt.hlsearch = true
-opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true
+-- Searching
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
-opt.fileformats = {"unix", "dos", "mac"}
- --
+-- vim.o.fileformats = {"unix", "dos", "mac"}
 
---[[
-if exists('$SHELL')
-    opt.shell=$SHELL
-else
-    opt.shell=/bin/sh
-endif
-]] opt.shell = "/usr/bin/zsh"
+vim.o.shell = "/usr/bin/zsh"
 vim.cmd([[syntax on]])
-opt.ruler = true
-opt.number = true
-opt.relativenumber = true
+vim.o.ruler = true
+vim.o.number = true
+-- vim.wo.number = true
+vim.o.relativenumber = true
 
--- opt.no_buffers_menu = 1
-vim.cmd([[colorscheme gruvbox]])
-opt.background = "dark"
+vim.o.mousemodel = "popup"
+vim.o.guioptions = "egmrti"
+vim.o.gfn = "Monospace 10"
 
-opt.mousemodel = "popup"
--- opt.t_Co = 256
-opt.guioptions = "egmrti"
-opt.gfn = "Monospace 10"
- --
+vim.o.errorbells = false
+vim.o.gcr = "a:blinkon0"
+vim.o.scrolloff = 3
 
---[[
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    opt.guifont=Menlo:h12
-    opt.transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
+-- Status bar: global statusline at the bottom
+vim.o.laststatus = 3
+vim.o.colorcolumn = "80"
 
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-endif
-]] --  Disable visualbell
--- opt.noerrorbells = {'visualbell', 't_vb='}
-opt.errorbells = false
- --
+-- Use modeline overrides
+vim.o.modeline = true
+vim.o.modelines = 10
 
---[[
-if has('autocmd') then
-  autocmd GUIEnter * opt.visualbell t_vb=
-end
-]] -- " Disable the blinking cursor.
-opt.gcr = "a:blinkon0"
-opt.scrolloff = 3
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = "menuone,noselect"
 
--- " Status bar: global statusline at the bottom
-opt.laststatus = 3
-opt.colorcolumn = "80"
+-- vim.o.wildignore = {"__pycache__"}
+-- vim.o.wildignore:append({"*.o", "*~", "*.pyc", "*pycache*"})
+vim.o.showmode = false
+vim.o.showcmd = true
+vim.o.cmdheight = 1 -- Height of the command bar
+vim.o.showmatch = true -- show matching brackets when text indicator is over them
+vim.o.equalalways = false -- I don't like my windows changing all the time
+vim.o.splitright = true -- Prefer windows splitting to the right
+vim.o.updatetime = 250 -- Make updates happen faster
+vim.wo.signcolumn = "yes"
 
--- " Use modeline overrides
-opt.modeline = true
-opt.modelines = 10
-
-opt.title = true
-opt.titleold = "Terminal"
-opt.titlestring = "%F"
-
-opt.statusline = "%F%m%r%h%w%=(%{&ff}/%Y) (line %l/%L, col %c)"
-opt.omnifunc = "syntaxcomplete#Complete"
-opt.wildignore = {"__pycache__"}
-opt.wildignore:append({"*.o", "*~", "*.pyc", "*pycache*"})
-opt.showmode = false
-opt.showcmd = true
-opt.cmdheight = 1 -- Height of the command bar
-opt.showmatch = true -- show matching brackets when text indicator is over them
-opt.ignorecase = true -- Ignore case when searching...
-opt.smartcase = true -- ... unless there is a capital letter in the query
-opt.equalalways = false -- I don't like my windows changing all the time
-opt.splitright = true -- Prefer windows splitting to the right
-opt.splitbelow = true -- Prefer windows splitting to the bottom
-opt.updatetime = 1000 -- Make updates happen faster
-opt.scrolloff = 10 -- Make it so there are always ten lines below my cursor
+vim.o.scrolloff = 10 -- Make it so there are always ten lines below my cursor

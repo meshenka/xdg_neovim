@@ -1,3 +1,4 @@
 autoload
 plugged
 session
+plugin/packer_compiled.lua
