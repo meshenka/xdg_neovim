@@ -2,3 +2,4 @@ autoload
 plugged
 session
 plugin/packer_compiled.lua
+lua/.luarc.json
